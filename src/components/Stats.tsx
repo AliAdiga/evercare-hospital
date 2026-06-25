@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const stats = [
   { number: 120000, suffix: '+', label: 'Patients Treated', icon: '🫀' },
@@ -11,51 +12,70 @@ const stats = [
   { number: 24, suffix: '/7', label: 'Emergency Care', icon: '🚑' },
 ]
 
-function CountUp({ target, suffix }: { target: number; suffix: string }) {
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+}
+
+function CountUp({ target, suffix, trigger }: { target: number; suffix: string; trigger: boolean }) {
   const [count, setCount] = useState(0)
-  const ref = useRef<HTMLSpanElement>(null)
   const started = useRef(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true
-          const duration = 2000
-          const steps = 60
-          const increment = target / steps
-          let current = 0
-          const timer = setInterval(() => {
-            current += increment
-            if (current >= target) {
-              setCount(target)
-              clearInterval(timer)
-            } else {
-              setCount(Math.floor(current))
-            }
-          }, duration / steps)
-        }
-      },
-      { threshold: 0.3 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [target])
+    if (!trigger || started.current) return
+    started.current = true
 
-  return (
-    <span ref={ref}>
-      {count.toLocaleString()}{suffix}
-    </span>
-  )
+    const duration = 2200
+    const startTime = performance.now()
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = easeOutExpo(progress)
+      setCount(Math.floor(eased * target))
+      if (progress < 1) requestAnimationFrame(tick)
+      else setCount(target)
+    }
+
+    requestAnimationFrame(tick)
+  }, [trigger, target])
+
+  return <span>{count.toLocaleString()}{suffix}</span>
+}
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  show: {
+    opacity: 1, y: 0, scale: 1,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+  },
 }
 
 export default function Stats() {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
   return (
     <section style={{
       padding: '80px 8%',
       background: 'linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%)',
     }}>
-      <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        style={{ textAlign: 'center', marginBottom: '56px' }}
+      >
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
           color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem',
@@ -73,16 +93,29 @@ export default function Stats() {
         }}>
           Trusted by thousands, every day
         </h2>
-      </div>
+      </motion.div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-        gap: '24px',
-      }}>
+      {/* Grid */}
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? 'show' : 'hidden'}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+          gap: '24px',
+        }}
+      >
         {stats.map((stat) => (
-          <div
+          <motion.div
             key={stat.label}
+            variants={cardVariants}
+            whileHover={{
+              y: -8,
+              background: 'rgba(255,255,255,0.22)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+            }}
             style={{
               background: 'rgba(255,255,255,0.12)',
               border: '1px solid rgba(255,255,255,0.2)',
@@ -90,31 +123,32 @@ export default function Stats() {
               padding: '32px 24px',
               textAlign: 'center',
               backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.2)'
-              e.currentTarget.style.transform = 'translateY(-4px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.12)'
-              e.currentTarget.style.transform = 'translateY(0)'
+              cursor: 'default',
             }}
           >
-            <div style={{ fontSize: '2.2rem', marginBottom: '12px' }}>{stat.icon}</div>
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={inView ? { scale: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.3, type: 'spring', stiffness: 300 }}
+              style={{ fontSize: '2.2rem', marginBottom: '12px' }}
+            >
+              {stat.icon}
+            </motion.div>
+
             <div style={{
               fontFamily: 'Lora, serif',
               fontSize: '2.4rem', color: 'white',
               fontWeight: 600, marginBottom: '8px',
             }}>
-              <CountUp target={stat.number} suffix={stat.suffix} />
+              <CountUp target={stat.number} suffix={stat.suffix} trigger={inView} />
             </div>
+
             <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
               {stat.label}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }

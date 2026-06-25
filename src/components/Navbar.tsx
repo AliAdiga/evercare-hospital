@@ -2,9 +2,25 @@
 import Search from '@/components/Search'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { motion, useScroll, useTransform } from 'framer-motion'
+
+const navLinks = [
+  { href: '#departments', label: 'Departments' },
+  { href: '#doctors', label: 'Doctors' },
+  { href: '#emergency', label: 'Emergency' },
+  { href: '#news', label: 'News' },
+  { href: '#contact', label: 'Contact' },
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [activeLink, setActiveLink] = useState('')
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const { scrollY } = useScroll()
+
+  const navHeight = useTransform(scrollY, [0, 80], [70, 58])
+  const logoSize = useTransform(scrollY, [0, 80], [36, 30])
+  const logoFontSize = useTransform(scrollY, [0, 80], [1.2, 1.05])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -13,30 +29,99 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? 'rgba(253,248,242,0.95)' : 'rgba(253,248,242,0.85)',
-      backdropFilter: 'blur(12px)',
-      borderBottom: '1px solid var(--border)',
-      padding: '0 5%',
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      height: '70px',
-    }}>
-      <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-        <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--terracotta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700 }}>E</div>
-        <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: 'var(--midnight)', fontWeight: 600 }}>Evercare Hospital</span>
+    <motion.nav
+      style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+        background: scrolled ? 'rgba(253,248,242,0.97)' : 'rgba(253,248,242,0.85)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+        padding: '0 5%',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: navHeight,
+        transition: 'background 0.3s ease, border-color 0.3s ease',
+      }}
+    >
+      {/* Logo */}
+      <Link href="/" aria-label="Evercare Hospital — home" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+        <motion.div
+          style={{
+            width: logoSize, height: logoSize,
+            borderRadius: '50%',
+            background: 'var(--terracotta)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'white', fontWeight: 700,
+          }}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+        >
+          <motion.span style={{ fontSize: useTransform(scrollY, [0, 80], [18, 15]) }}>E</motion.span>
+        </motion.div>
+        <motion.span
+          style={{
+            fontFamily: 'Lora, serif',
+            fontSize: logoFontSize,
+            color: 'var(--midnight)', fontWeight: 600,
+          }}
+        >
+          Evercare Hospital
+        </motion.span>
       </Link>
-      <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
-        <li><a href="#departments" style={{ textDecoration: 'none', color: 'var(--charcoal)', fontSize: '0.88rem' }}>Departments</a></li>
-        <li><a href="#doctors" style={{ textDecoration: 'none', color: 'var(--charcoal)', fontSize: '0.88rem' }}>Doctors</a></li>
-        <li><a href="#emergency" style={{ textDecoration: 'none', color: 'var(--charcoal)', fontSize: '0.88rem' }}>Emergency</a></li>
-        <li><a href="#news" style={{ textDecoration: 'none', color: 'var(--charcoal)', fontSize: '0.88rem' }}>News</a></li>
-        <li><a href="#contact" style={{ textDecoration: 'none', color: 'var(--charcoal)', fontSize: '0.88rem' }}>Contact</a></li>
+
+      {/* Desktop nav links */}
+      <ul className="evc-nav__links">
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              className="evc-nav__link"
+              aria-current={activeLink === link.href ? 'true' : undefined}
+              onClick={() => setActiveLink(link.href)}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+
+      {/* Desktop actions */}
+      <div className="evc-nav__actions">
         <Search />
-        <a href="#appointment" style={{ background: 'var(--terracotta)', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
+        <a
+          href="#appointment"
+          style={{
+            background: 'var(--terracotta)', color: 'white',
+            padding: '10px 22px', borderRadius: '100px',
+            fontSize: '0.85rem', fontWeight: 600,
+            textDecoration: 'none', display: 'inline-block',
+          }}
+        >
+          Book Appointment
+        </a>
       </div>
-    </nav>
+
+      {/* Mobile hamburger */}
+      <button
+        type="button"
+        className="evc-nav__burger"
+        aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={mobileOpen}
+        aria-controls="mobile-menu"
+        onClick={() => setMobileOpen((o) => !o)}
+      >
+        <span /><span /><span />
+      </button>
+
+      {/* Mobile menu panel */}
+      <div id="mobile-menu" className={`evc-nav__mobile${mobileOpen ? ' evc-nav__mobile--open' : ''}`}>
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+            {link.label}
+          </a>
+        ))}
+        <a href="#appointment" className="evc-nav__mobile-cta" onClick={() => setMobileOpen(false)}>
+          Book Appointment
+        </a>
+      </div>
+    </motion.nav>
   )
 }
