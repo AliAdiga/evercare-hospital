@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import SectionHeading from '@/components/SectionHeading'
 
 const doctors = [
   {
@@ -66,46 +67,25 @@ export default function Doctors() {
     <section id="doctors" style={{ padding: '100px 8%', background: 'var(--cream)' }}>
 
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '52px' }}
-      >
-        <div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            color: 'var(--terracotta)', fontSize: '0.75rem',
-            fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-            marginBottom: '16px',
-          }}>
-            <span style={{ width: '20px', height: '2px', background: 'var(--terracotta)', display: 'inline-block' }} />
-            Our Physicians
-          </div>
-          <h2 style={{
-            fontFamily: 'Lora, serif',
-            fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-            color: 'var(--midnight)', lineHeight: 1.25,
-          }}>
-            Meet the people who care
-          </h2>
-        </div>
-        <motion.a
-          href="#appointment"
-          whileHover={{ scale: 1.04, borderColor: 'var(--terracotta)', color: 'var(--terracotta)' }}
-          whileTap={{ scale: 0.97 }}
-          style={{
-            border: '2px solid var(--border)', color: 'var(--charcoal)',
-            padding: '12px 24px', borderRadius: '100px',
-            textDecoration: 'none', fontWeight: 500, fontSize: '0.88rem',
-            whiteSpace: 'nowrap', display: 'inline-block',
-            transition: 'color 0.2s ease, border-color 0.2s ease',
-          }}
-        >
-          Book a consultation
-        </motion.a>
-      </motion.div>
+      <SectionHeading
+        index="04"
+        eyebrow="Our physicians"
+        title="Meet the people who care"
+        maxWidth={560}
+        action={
+          <a
+            href="#appointment"
+            style={{
+              border: '1.5px solid var(--border)', color: 'var(--charcoal)',
+              padding: '12px 24px', borderRadius: '100px',
+              textDecoration: 'none', fontWeight: 500, fontSize: '0.88rem',
+              whiteSpace: 'nowrap', display: 'inline-block',
+            }}
+          >
+            Book a consultation
+          </a>
+        }
+      />
 
       {/* Grid */}
       <motion.div

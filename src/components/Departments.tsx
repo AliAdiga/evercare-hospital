@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import SectionHeading from '@/components/SectionHeading'
 
 const departments = [
   { icon: '🫀', color: '#fdeaea', name: 'Cardiology', desc: 'Advanced heart care including diagnostics, interventional procedures, and cardiac rehabilitation.' },
@@ -32,34 +33,13 @@ export default function Departments() {
     <section id="departments" style={{ padding: '100px 8%', background: 'var(--warm-white)' }}>
 
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-        style={{ textAlign: 'center', marginBottom: '60px' }}
-      >
-        <div style={{
-          color: 'var(--terracotta)', fontSize: '0.75rem', fontWeight: 700,
-          letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px',
-        }}>
-          Medical Departments
-        </div>
-        <h2 style={{
-          fontFamily: 'Lora, serif',
-          fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-          color: 'var(--midnight)', lineHeight: 1.25, marginBottom: '16px',
-        }}>
-          Everything under one roof
-        </h2>
-        <p style={{
-          fontSize: '1rem', color: 'var(--muted)',
-          lineHeight: 1.7, maxWidth: '560px', margin: '0 auto',
-        }}>
-          From routine check-ups to complex surgeries, our multidisciplinary teams
-          are equipped to care for every aspect of your health.
-        </p>
-      </motion.div>
+      <SectionHeading
+        index="03"
+        eyebrow="Medical departments"
+        title="Everything under one roof"
+        intro="From routine check-ups to complex surgeries, our multidisciplinary teams are equipped to care for every aspect of your health."
+        center
+      />
 
       {/* Grid */}
       <motion.div

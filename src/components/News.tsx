@@ -1,36 +1,23 @@
 'use client'
+import SectionHeading from '@/components/SectionHeading'
+
 export default function News() {
   return (
     <section
       id="news"
       style={{ padding: '100px 8%', background: 'var(--warm-white)' }}
     >
-      <div style={{
-        display: 'flex', justifyContent: 'space-between',
-        alignItems: 'flex-end', marginBottom: '52px',
-      }}>
-        <div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            color: 'var(--terracotta)', fontSize: '0.75rem',
-            fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', marginBottom: '16px',
-          }}>
-            <span style={{ width: '20px', height: '2px', background: 'var(--terracotta)', display: 'inline-block' }} />
-            Latest News
-          </div>
-          <h2 style={{
-            fontFamily: 'Lora, serif',
-            fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-            color: 'var(--midnight)', lineHeight: 1.25,
-          }}>
-            Health insights & hospital updates
-          </h2>
-        </div>
-        <a href="/blog" style={{ border: '2px solid var(--border)', color: 'var(--charcoal)', padding: '12px 24px', borderRadius: '100px', textDecoration: 'none', fontWeight: 500, fontSize: '0.88rem', whiteSpace: 'nowrap' }}>
-          View all articles
-        </a>
-      </div>
+      <SectionHeading
+        index="06"
+        eyebrow="Latest news"
+        title="Health insights & hospital updates"
+        maxWidth={560}
+        action={
+          <a href="/blog" style={{ border: '1.5px solid var(--border)', color: 'var(--charcoal)', padding: '12px 24px', borderRadius: '100px', textDecoration: 'none', fontWeight: 500, fontSize: '0.88rem', whiteSpace: 'nowrap' }}>
+            View all articles
+          </a>
+        }
+      />
 
       <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: '24px' }}>
 

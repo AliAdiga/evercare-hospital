@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import SectionHeading from '@/components/SectionHeading'
 
 const facilities = [
   {
@@ -48,19 +49,14 @@ const facilities = [
 export default function Facilities() {
   return (
     <section id="facilities" style={{ padding: '100px 8%', background: 'var(--midnight)' }}>
-      <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
-          <span style={{ width: '20px', height: '2px', background: 'rgba(255,255,255,0.4)', display: 'inline-block' }} />
-          Our Facilities
-          <span style={{ width: '20px', height: '2px', background: 'rgba(255,255,255,0.4)', display: 'inline-block' }} />
-        </div>
-        <h2 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', color: 'white', lineHeight: 1.25, marginBottom: '16px' }}>
-          World-class care, world-class environment
-        </h2>
-        <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, maxWidth: '540px', margin: '0 auto' }}>
-          Our facilities are designed with your comfort and recovery in mind — from state-of-the-art operating theatres to warm, welcoming patient rooms.
-        </p>
-      </div>
+      <SectionHeading
+        index="05"
+        eyebrow="Our facilities"
+        title="World-class care, world-class environment"
+        intro="Our facilities are designed with your comfort and recovery in mind — from state-of-the-art operating theatres to warm, welcoming patient rooms."
+        center
+        light
+      />
 
       <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gridTemplateRows: 'auto auto', gap: '16px' }}>
         {facilities.map((f) => (
