@@ -93,7 +93,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: (i % 3) * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.5, delay: (i % 3) * 0.1, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
             style={{
               background: 'white', borderRadius: '20px',
               padding: '32px', border: '1px solid var(--border)',

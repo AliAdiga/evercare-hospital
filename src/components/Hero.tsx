@@ -6,7 +6,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] }
+    transition: { duration: 0.7, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }
   }),
 }
 
@@ -26,7 +26,7 @@ export default function Hero() {
       <motion.div
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
         style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'url(https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1600&q=80)',
@@ -162,7 +162,7 @@ export default function Hero() {
           className="evc-hero__floating-card"
           initial={{ opacity: 0, x: 40, y: 20 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
           whileHover={{ y: -6, boxShadow: '0 30px 80px rgba(0,0,0,0.4)' }}
           style={{
             position: 'absolute', right: '8%', bottom: '15%',
