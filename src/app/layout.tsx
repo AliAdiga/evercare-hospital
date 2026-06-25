@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import AccessibilityWidget from '@/components/AccessibilityWidget'
+import ScrollReveal from '@/components/ScrollReveal'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://evercare-hospital-blush.vercel.app'),
@@ -69,6 +70,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <ScrollReveal />
         <AccessibilityWidget />
       </body>
     </html>

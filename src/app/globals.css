@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
 @import "tailwindcss";
 
@@ -61,6 +61,34 @@ body {
 h1, h2, h3, h4 {
   font-family: 'Lora', serif;
 }
+
+/* ── Editorial display typeface (whole-site) ───────────── */
+h1, h2, h3, h4,
+.evc-display {
+  font-family: 'Fraunces', 'Lora', Georgia, serif !important;
+  letter-spacing: -0.018em;
+}
+h1 { font-weight: 500; }
+
+/* Editorial helpers */
+.evc-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--terracotta);
+}
+.evc-index {
+  font-family: 'Fraunces', serif; font-size: 0.85rem; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.05em;
+}
+.evc-rule { height: 1px; background: var(--border); border: 0; }
+
+/* ── Scroll reveal (site-wide, progressive enhancement) ── */
+.evc-reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  will-change: opacity, transform;
+}
+.evc-reveal.is-visible { opacity: 1; transform: none; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
@@ -155,7 +183,9 @@ textarea:focus-visible {
 @media (max-width: 860px) {
   .evc-hero__floating-card { display: none !important; }
   .evc-hero__content { padding: 70px 6% 60px !important; }
-  .evc-hero__stats { gap: 28px !important; flex-wrap: wrap; }
+  .evc-hero__stats { grid-template-columns: repeat(2, 1fr) !important; }
+  .evc-hero__stats > div:nth-child(odd) { border-left: none !important; }
+  .evc-hero__stats > div:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.12); }
   .evc-appointment__grid,
   .evc-footer__grid { grid-template-columns: 1fr !important; gap: 40px !important; }
   .evc-appointment__grid { gap: 48px !important; }

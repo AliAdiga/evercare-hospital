@@ -3,196 +3,91 @@
 import { motion } from 'framer-motion'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   show: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }
+    transition: { duration: 0.8, delay: 0.1 + i * 0.1, ease: 'easeOut' as const },
   }),
 }
 
-const stats = [
-  { num: '38+', label: 'Specialties' },
+const heroStats = [
   { num: '240', label: 'Specialists' },
-  { num: '98%', label: 'Patient Satisfaction' },
+  { num: '38', label: 'Departments' },
+  { num: '98%', label: 'Satisfaction' },
+  { num: '24/7', label: 'Emergency' },
 ]
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      style={{ minHeight: '100vh', paddingTop: '70px', position: 'relative', overflow: 'hidden' }}
-    >
-      {/* Background */}
+    <section id="hero" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', background: 'var(--midnight)' }}>
+      {/* Full-bleed photography */}
       <motion.div
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
+        transition={{ duration: 2, ease: 'easeOut' }}
         style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'url(https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1600&q=80)',
-          backgroundSize: 'cover', backgroundPosition: 'center',
-          filter: 'brightness(0.35)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1800&q=80)',
+          backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.42)',
         }}
       />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(14,58,63,0.92) 0%, rgba(14,58,63,0.45) 50%, rgba(14,58,63,0.2) 100%)' }} />
 
-      {/* Overlay */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(90deg, rgba(14,58,63,0.9) 0%, rgba(14,58,63,0.35) 100%)',
-      }} />
+      {/* Content frame */}
+      <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '0 clamp(1.25rem, 5vw, 5rem)' }}>
 
-      {/* Content */}
-      <div className="evc-hero__content" style={{
-        position: 'relative', zIndex: 1,
-        minHeight: 'calc(100vh - 70px)',
-        display: 'flex', alignItems: 'center',
-        padding: '80px 8%',
-      }}>
-        <div style={{ maxWidth: '640px' }}>
-
-          {/* Badge */}
-          <motion.div
-            custom={0} variants={fadeUp} initial="hidden" animate="show"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              background: 'rgba(219,106,71,0.22)', color: '#f0a98e',
-              border: '1px solid rgba(219,106,71,0.45)',
-              padding: '6px 16px', borderRadius: '100px',
-              fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.08em',
-              textTransform: 'uppercase', marginBottom: '32px', width: 'fit-content',
-            }}
-          >
-            <motion.span
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#f0a98e', display: 'inline-block' }}
-            />
-            Trusted Since 1984 · 120,000+ Patients Served
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            custom={1} variants={fadeUp} initial="hidden" animate="show"
-            style={{
-              fontFamily: 'Lora, serif',
-              fontSize: 'clamp(2.8rem, 5vw, 4.2rem)',
-              lineHeight: 1.15, color: 'white', marginBottom: '24px',
-            }}
-          >
-            Your health,<br />
-            our <em style={{ color: 'var(--terracotta-light)', fontStyle: 'italic' }}>deepest</em><br />
-            commitment.
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            custom={2} variants={fadeUp} initial="hidden" animate="show"
-            style={{
-              fontSize: '1.1rem', lineHeight: 1.8,
-              color: 'rgba(255,255,255,0.75)', maxWidth: '500px', marginBottom: '44px',
-            }}
-          >
-            Evercare brings together world-class physicians, advanced technology,
-            and genuine human care — because you deserve both the science and the warmth.
-          </motion.p>
-
-          {/* Buttons */}
-          <motion.div
-            custom={3} variants={fadeUp} initial="hidden" animate="show"
-            style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
-          >
-            <motion.a
-              href="#appointment"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                background: 'var(--terracotta)', color: 'white',
-                padding: '16px 34px', borderRadius: '100px',
-                textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem',
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                cursor: 'pointer',
-              }}
-            >
-              📅 Book Appointment
-            </motion.a>
-            <motion.a
-              href="#departments"
-              whileHover={{ scale: 1.04, borderColor: 'rgba(255,255,255,0.7)' }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                border: '2px solid rgba(255,255,255,0.35)', color: 'white',
-                padding: '16px 34px', borderRadius: '100px',
-                textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem',
-                cursor: 'pointer',
-              }}
-            >
-              Explore Services
-            </motion.a>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            className="evc-hero__stats"
-            custom={4} variants={fadeUp} initial="hidden" animate="show"
-            style={{
-              display: 'flex', gap: '48px', marginTop: '64px',
-              paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.15)',
-            }}
-          >
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-              >
-                <div style={{ fontFamily: 'Lora, serif', fontSize: '2.2rem', color: 'white', fontWeight: 600 }}>
-                  {s.num}
-                </div>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', marginTop: '4px' }}>
-                  {s.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Floating card */}
+        {/* Top editorial markers */}
         <motion.div
-          className="evc-hero__floating-card"
-          initial={{ opacity: 0, x: 40, y: 20 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-          whileHover={{ y: -6, boxShadow: '0 30px 80px rgba(0,0,0,0.4)' }}
-          style={{
-            position: 'absolute', right: '8%', bottom: '15%',
-            background: 'white', borderRadius: '20px',
-            padding: '24px 28px',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-            display: 'flex', alignItems: 'center', gap: '16px',
-            maxWidth: '300px',
-            cursor: 'default',
-          }}
+          custom={0} variants={fadeUp} initial="hidden" animate="show"
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 'calc(70px + 28px)', color: 'rgba(255,255,255,0.6)' }}
         >
-          <motion.img
-            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=120&h=120&fit=crop&q=80"
-            alt="Dr. Sarah Okonkwo, Cardiologist"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-            style={{ width: '56px', height: '56px', borderRadius: '50%', objectFit: 'cover' }}
-          />
-          <div>
-            <div style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--midnight)' }}>Dr. Sarah Okonkwo</div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--terracotta)', fontWeight: 600, marginTop: '2px' }}>Cardiology</div>
-            <motion.div
-              animate={{ opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '4px' }}
+          <span className="evc-index" style={{ color: 'rgba(255,255,255,0.6)' }}>01 — Welcome</span>
+          <span style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Est. 1984 · Downtown Medical District</span>
+        </motion.div>
+        <motion.hr custom={0} variants={fadeUp} initial="hidden" animate="show" style={{ border: 0, height: '1px', background: 'rgba(255,255,255,0.18)', margin: '20px 0 0' }} />
+
+        {/* Headline block */}
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '48px 0' }}>
+          <div style={{ maxWidth: '900px' }}>
+            <motion.p custom={1} variants={fadeUp} initial="hidden" animate="show" className="evc-eyebrow" style={{ color: 'var(--terracotta-light)', marginBottom: '24px', display: 'block' }}>
+              Trusted by 120,000+ patients
+            </motion.p>
+            <motion.h1
+              custom={2} variants={fadeUp} initial="hidden" animate="show"
+              style={{ fontSize: 'clamp(3.2rem, 8.5vw, 7.5rem)', lineHeight: 0.98, color: '#fff', margin: 0, fontWeight: 500 }}
             >
-              🟢 Available Today
+              Where healing<br />
+              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--terracotta-light)' }}>begins</span>.
+            </motion.h1>
+            <motion.p
+              custom={3} variants={fadeUp} initial="hidden" animate="show"
+              style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.3rem)', lineHeight: 1.7, color: 'rgba(255,255,255,0.78)', maxWidth: '540px', margin: '32px 0 40px' }}
+            >
+              World-class medicine and genuinely human care, together — because you deserve both the science and the warmth.
+            </motion.p>
+            <motion.div custom={4} variants={fadeUp} initial="hidden" animate="show" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <a href="#appointment" style={{ background: 'var(--terracotta)', color: '#fff', padding: '17px 38px', borderRadius: '100px', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>
+                Book an appointment
+              </a>
+              <a href="#departments" style={{ border: '1.5px solid rgba(255,255,255,0.4)', color: '#fff', padding: '17px 38px', borderRadius: '100px', textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem' }}>
+                Explore care
+              </a>
             </motion.div>
           </div>
+        </div>
+
+        {/* Bottom stat band */}
+        <motion.div
+          custom={5} variants={fadeUp} initial="hidden" animate="show"
+          className="evc-hero__stats"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0', borderTop: '1px solid rgba(255,255,255,0.18)', paddingBottom: '40px' }}
+        >
+          {heroStats.map((s, i) => (
+            <div key={s.label} style={{ padding: '28px 24px', borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.12)' }}>
+              <div className="evc-display" style={{ fontSize: 'clamp(2rem, 3.4vw, 3.2rem)', color: '#fff', fontWeight: 500, lineHeight: 1 }}>{s.num}</div>
+              <div style={{ fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginTop: '10px' }}>{s.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
