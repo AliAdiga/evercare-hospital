@@ -1,10 +1,12 @@
+import ERWaitStatus from '@/components/ERWaitStatus'
+
 export default function Emergency() {
   return (
     <section
       id="emergency"
       style={{ padding: '100px 8%', background: 'var(--midnight)' }}
     >
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
+      <div className="evc-appointment__grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
 
         {/* LEFT */}
         <div>
@@ -32,6 +34,8 @@ export default function Emergency() {
 
         {/* RIGHT */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+          <ERWaitStatus />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '20px 24px' }}>
             <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>🚑</div>

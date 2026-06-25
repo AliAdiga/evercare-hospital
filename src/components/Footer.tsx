@@ -9,22 +9,23 @@ const services = [
   { label: 'Neurology', href: '/departments/neurology' },
   { label: 'Pediatrics', href: '/departments/pediatrics' },
   { label: 'Orthopedics', href: '/departments/orthopedics' },
-  { label: 'Oncology', href: '/departments/oncology' },
+  { label: 'Treatments & Procedures', href: '/treatments' },
 ]
 
 const patientCare = [
   { label: 'Book Appointment', href: '/#appointment' },
-  { label: 'Insurance', href: '/#contact' },
-  { label: 'Telehealth', href: '/#appointment' },
-  { label: 'Emergency', href: '/#emergency' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Patient Portal', href: '/patient-portal' },
+  { label: 'Insurance & Pricing', href: '/insurance' },
+  { label: 'Telehealth', href: '/telehealth' },
+  { label: 'Plan Your Visit', href: '/visit' },
 ]
 
 const about = [
-  { label: 'Departments', href: '/#departments' },
-  { label: 'Our Doctors', href: '/#doctors' },
-  { label: 'Facilities', href: '/#facilities' },
-  { label: 'News', href: '/#news' },
+  { label: 'Health Library', href: '/health-library' },
+  { label: 'International Patients', href: '/international' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Safety & Infection Control', href: '/safety' },
+  { label: 'News', href: '/blog' },
 ]
 
 export default function Footer() {

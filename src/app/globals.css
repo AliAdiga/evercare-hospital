@@ -30,6 +30,27 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes erpulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+/* ── Accessibility toggles ─────────────────────────────── */
+html.a11y-large-text { zoom: 1.15; }
+html.a11y-high-contrast {
+  --cream: #ffffff;
+  --warm-white: #ffffff;
+  --blush: #e6eef0;
+  --charcoal: #0a0a0a;
+  --muted: #1f1f1f;
+  --border: #0a0a0a;
+  --midnight: #001014;
+  --sage: #0c5b55;
+  --sage-dark: #073f3b;
+  --terracotta: #9a3b1f;
+  --terracotta-light: #b6532f;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: var(--cream);

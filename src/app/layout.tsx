@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import AccessibilityWidget from '@/components/AccessibilityWidget'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://evercare-hospital-blush.vercel.app'),
@@ -66,7 +67,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AccessibilityWidget />
+      </body>
     </html>
   )
 }

@@ -86,6 +86,12 @@ export default function Navbar() {
       {/* Desktop actions */}
       <div className="evc-nav__actions">
         <Search />
+        <Link
+          href="/patient-portal"
+          style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--charcoal)', textDecoration: 'none' }}
+        >
+          Portal
+        </Link>
         <a
           href="#appointment"
           style={{
@@ -118,6 +124,8 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
+        <Link href="/telehealth" onClick={() => setMobileOpen(false)}>Telehealth</Link>
+        <Link href="/patient-portal" onClick={() => setMobileOpen(false)}>Patient Portal</Link>
         <a href="#appointment" className="evc-nav__mobile-cta" onClick={() => setMobileOpen(false)}>
           Book Appointment
         </a>
