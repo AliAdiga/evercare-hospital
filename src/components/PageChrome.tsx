@@ -23,12 +23,17 @@ export default function PageChrome({
       </nav>
 
       {/* Hero */}
-      <header style={{ paddingTop: '70px', background: 'linear-gradient(135deg, var(--midnight) 0%, var(--sage-dark) 100%)' }}>
-        <div className="evc-section-pad" style={{ padding: '90px 8% 70px', maxWidth: '1100px' }}>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--terracotta-light)', marginBottom: '16px' }}>{eyebrow}</p>
-          <h1 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#fff', lineHeight: 1.15, marginBottom: intro ? '18px' : 0, maxWidth: '720px' }}>{title}</h1>
-          {intro && <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7, maxWidth: '600px' }}>{intro}</p>}
+      <header style={{ position: 'relative', overflow: 'hidden', paddingTop: '70px', background: 'linear-gradient(135deg, var(--midnight) 0%, var(--sage-dark) 100%)' }}>
+        <span aria-hidden="true" style={{ position: 'absolute', right: '-1%', top: '8%', fontFamily: 'Fraunces, serif', fontStyle: 'italic', fontSize: 'clamp(12rem, 26vw, 28rem)', color: 'rgba(255,255,255,0.05)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>E</span>
+        <div className="evc-section-pad" style={{ position: 'relative', padding: '76px 8% 64px', maxWidth: '1100px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+            <span style={{ width: '52px', height: '1px', background: 'rgba(255,255,255,0.32)' }} />
+            <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--terracotta-light)' }}>{eyebrow}</span>
+          </div>
+          <h1 style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)', color: '#fff', lineHeight: 1.02, margin: 0, fontWeight: 500, maxWidth: '860px', letterSpacing: '-0.02em' }}>{title}</h1>
+          {intro && <p style={{ fontSize: 'clamp(1.02rem, 1.5vw, 1.22rem)', color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, maxWidth: '620px', marginTop: '24px' }}>{intro}</p>}
         </div>
+        <div style={{ height: '1px', background: 'rgba(255,255,255,0.14)', margin: '0 8%' }} />
       </header>
 
       {/* Content */}
