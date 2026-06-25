@@ -57,7 +57,7 @@ export const doctors = [
     credentials: 'MD, FACC · 18 years experience',
     rating: '4.9',
     bgGradient: 'linear-gradient(160deg,#e8d5c4,#c9b5a8)',
-    avatarGradient: 'linear-gradient(135deg,#c7735a,#e08b72)',
+    avatarGradient: 'linear-gradient(135deg,#db6a47,#ec8a6c)',
   },
   {
     initial: 'M',
@@ -66,7 +66,7 @@ export const doctors = [
     credentials: 'MD, PhD · 22 years experience',
     rating: '4.8',
     bgGradient: 'linear-gradient(160deg,#c9ddd5,#a8c5b8)',
-    avatarGradient: 'linear-gradient(135deg,#7a9e8e,#5a8070)',
+    avatarGradient: 'linear-gradient(135deg,#2f8f86,#1d6f69)',
   },
   {
     initial: 'A',

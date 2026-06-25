@@ -79,7 +79,7 @@ export default function Departments() {
             variants={cardVariants}
             whileHover={{
               y: -8,
-              boxShadow: '0 16px 48px rgba(199,115,90,0.13)',
+              boxShadow: '0 16px 48px rgba(219,106,71,0.13)',
               borderColor: 'var(--terracotta)',
             }}
             transition={{ duration: 0.22, ease: 'easeOut' }}

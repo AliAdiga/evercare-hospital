@@ -81,7 +81,7 @@ export default function Facilities() {
               onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)' }}
             >
               <img src={f.image} alt={f.title} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(30,43,47,0.85) 0%, transparent 50%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(14,58,63,0.9) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: '20px', left: '20px' }}>
                 <div style={{ color: 'white', fontFamily: 'Lora, serif', fontSize: f.gridRow ? '1.3rem' : '1rem', fontWeight: 600, marginBottom: '4px' }}>{f.title}</div>
                 <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem' }}>{f.desc}</div>

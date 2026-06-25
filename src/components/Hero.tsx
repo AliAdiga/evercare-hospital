@@ -38,7 +38,7 @@ export default function Hero() {
       {/* Overlay */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(90deg, rgba(30,43,47,0.85) 0%, rgba(30,43,47,0.3) 100%)',
+        background: 'linear-gradient(90deg, rgba(14,58,63,0.9) 0%, rgba(14,58,63,0.35) 100%)',
       }} />
 
       {/* Content */}
@@ -55,8 +55,8 @@ export default function Hero() {
             custom={0} variants={fadeUp} initial="hidden" animate="show"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              background: 'rgba(199,115,90,0.25)', color: '#e8a090',
-              border: '1px solid rgba(199,115,90,0.4)',
+              background: 'rgba(219,106,71,0.22)', color: '#f0a98e',
+              border: '1px solid rgba(219,106,71,0.45)',
               padding: '6px 16px', borderRadius: '100px',
               fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.08em',
               textTransform: 'uppercase', marginBottom: '32px', width: 'fit-content',
@@ -65,7 +65,7 @@ export default function Hero() {
             <motion.span
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#e8a090', display: 'inline-block' }}
+              style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#f0a98e', display: 'inline-block' }}
             />
             Trusted Since 1984 · 120,000+ Patients Served
           </motion.div>
@@ -175,8 +175,8 @@ export default function Hero() {
           }}
         >
           <motion.img
-            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&q=80"
-            alt="Doctor"
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=120&h=120&fit=crop&q=80"
+            alt="Dr. Sarah Okonkwo, Cardiologist"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.9 }}

@@ -24,6 +24,14 @@ function CountUp({ target, suffix, trigger }: { target: number; suffix: string; 
     if (!trigger || started.current) return
     started.current = true
 
+    // Respect users who prefer reduced motion — show the final value instantly.
+    const reduce = typeof window !== 'undefined'
+      && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduce) {
+      setCount(target)
+      return
+    }
+
     const duration = 2200
     const startTime = performance.now()
 
@@ -62,6 +70,16 @@ const cardVariants = {
 export default function Stats() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const [forced, setForced] = useState(false)
+
+  // Fallback: if the intersection observer never fires (edge cases / odd
+  // viewports), still count up shortly after mount so numbers never sit at 0.
+  useEffect(() => {
+    const id = setTimeout(() => setForced(true), 1800)
+    return () => clearTimeout(id)
+  }, [])
+
+  const go = inView || forced
 
   return (
     <section style={{
@@ -100,7 +118,7 @@ export default function Stats() {
         ref={ref}
         variants={containerVariants}
         initial="hidden"
-        animate={inView ? 'show' : 'hidden'}
+        animate={go ? 'show' : 'hidden'}
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
@@ -128,7 +146,7 @@ export default function Stats() {
           >
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
-              animate={inView ? { scale: 1, opacity: 1 } : {}}
+              animate={go ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.3, type: 'spring', stiffness: 300 }}
               style={{ fontSize: '2.2rem', marginBottom: '12px' }}
             >
@@ -140,7 +158,7 @@ export default function Stats() {
               fontSize: '2.4rem', color: 'white',
               fontWeight: 600, marginBottom: '8px',
             }}>
-              <CountUp target={stat.number} suffix={stat.suffix} trigger={inView} />
+              <CountUp target={stat.number} suffix={stat.suffix} trigger={go} />
             </div>
 
             <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>

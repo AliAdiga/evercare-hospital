@@ -54,7 +54,7 @@ export default function Search() {
         <div
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(30,43,47,0.6)',
+            background: 'rgba(14,58,63,0.6)',
             backdropFilter: 'blur(4px)',
             display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
             paddingTop: '80px', padding: '80px 20px 20px',
@@ -68,7 +68,7 @@ export default function Search() {
             overflow: 'hidden',
           }}>
             {/* Input */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '20px 24px', borderBottom: '1px solid #e8ddd4' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '20px 24px', borderBottom: '1px solid #dde7e5' }}>
               <span style={{ fontSize: '1.2rem' }}>🔍</span>
               <input
                 autoFocus
@@ -78,7 +78,7 @@ export default function Search() {
                 onChange={e => setQuery(e.target.value)}
                 style={{
                   flex: 1, border: 'none', outline: 'none',
-                  fontSize: '1rem', color: '#1e2b2f',
+                  fontSize: '1rem', color: '#0e3a3f',
                   fontFamily: 'DM Sans, sans-serif',
                   background: 'transparent',
                 }}
@@ -117,17 +117,17 @@ export default function Search() {
                         padding: '12px 16px', borderRadius: '12px',
                         transition: 'background 0.15s', cursor: 'pointer',
                       }}
-                        onMouseEnter={e => e.currentTarget.style.background = '#fdf8f2'}
+                        onMouseEnter={e => e.currentTarget.style.background = '#f4f6f5'}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                       >
-                        <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: '#f5e6da', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0 }}>
+                        <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: '#dcebe9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0 }}>
                           {item.icon}
                         </div>
                         <div style={{ flex: 1 }}>
-                          <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e2b2f', marginBottom: '2px' }}>{item.title}</div>
+                          <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#0e3a3f', marginBottom: '2px' }}>{item.title}</div>
                           <div style={{ fontSize: '0.78rem', color: '#7a8a8f' }}>{item.desc}</div>
                         </div>
-                        <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#c7735a', background: '#fdeaea', padding: '3px 10px', borderRadius: '100px' }}>
+                        <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#db6a47', background: '#fbe8e1', padding: '3px 10px', borderRadius: '100px' }}>
                           {item.type}
                         </div>
                       </div>
@@ -138,7 +138,7 @@ export default function Search() {
             </div>
 
             {/* Footer */}
-            <div style={{ padding: '12px 24px', borderTop: '1px solid #e8ddd4', display: 'flex', gap: '16px' }}>
+            <div style={{ padding: '12px 24px', borderTop: '1px solid #dde7e5', display: 'flex', gap: '16px' }}>
               <span style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>↵ to select</span>
               <span style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>ESC to close</span>
             </div>

@@ -3,18 +3,27 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #fdf8f2;
-  --warm-white: #fffcf8;
-  --blush: #f5e6da;
-  --terracotta: #c7735a;
-  --terracotta-light: #e08b72;
-  --sage: #7a9e8e;
-  --sage-dark: #5a8070;
-  --midnight: #1e2b2f;
-  --charcoal: #3a4a4f;
-  --muted: #7a8a8f;
-  --border: #e8ddd4;
+  /* Neutrals — kept warm & human, slightly cooler */
+  --cream: #f4f6f5;
+  --warm-white: #fcfdfd;
+  --blush: #dcebe9;          /* pale teal tint (accent backgrounds) */
+
+  /* Accent — warm coral / gold (the "pop") */
+  --terracotta: #db6a47;     /* coral CTA / accent */
+  --terracotta-light: #ec8a6c;
   --gold: #c9a96e;
+
+  /* Primary — rich teal / deep teal-navy (reassuring) */
+  --sage: #2f8f86;           /* teal */
+  --sage-dark: #1d6f69;      /* deep teal */
+  --teal: #157a74;
+  --navy: #0e3a3f;
+  --midnight: #0e3a3f;       /* deep teal-navy: dark sections + headings */
+
+  /* Text */
+  --charcoal: #28393c;
+  --muted: #65797c;
+  --border: #dde7e5;
 }
 
 html {
@@ -97,7 +106,7 @@ textarea:focus-visible {
   display: none;
   position: absolute; top: 100%; left: 0; right: 0;
   flex-direction: column; gap: 0.25rem;
-  background: rgba(253,248,242,0.99);
+  background: rgba(244,246,245,0.99);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 1rem 5% 1.5rem;

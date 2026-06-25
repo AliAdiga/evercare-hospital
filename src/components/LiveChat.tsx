@@ -77,7 +77,7 @@ export default function LiveChat() {
           </div>
 
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '320px', background: '#fdf8f2' }}>
+          <div style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '320px', background: '#f4f6f5' }}>
             {messages.map((msg, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: msg.from === 'user' ? 'flex-end' : 'flex-start' }}>
                 <div style={{
@@ -134,7 +134,7 @@ export default function LiveChat() {
           width: '60px', height: '60px', borderRadius: '50%',
           background: 'linear-gradient(135deg, var(--terracotta), var(--terracotta-light))',
           border: 'none', cursor: 'pointer', fontSize: '1.6rem',
-          boxShadow: '0 8px 30px rgba(199,115,90,0.4)',
+          boxShadow: '0 8px 30px rgba(219,106,71,0.4)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transition: 'all 0.3s',
         }}

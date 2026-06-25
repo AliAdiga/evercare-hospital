@@ -32,7 +32,7 @@ export default function Navbar() {
     <motion.nav
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        background: scrolled ? 'rgba(253,248,242,0.97)' : 'rgba(253,248,242,0.85)',
+        background: scrolled ? 'rgba(244,246,245,0.97)' : 'rgba(244,246,245,0.82)',
         backdropFilter: 'blur(16px)',
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
         padding: '0 5%',
