@@ -8,7 +8,7 @@ export default function News() {
       style={{ padding: '100px 8%', background: 'var(--warm-white)' }}
     >
       <SectionHeading
-        index="06"
+        index="10"
         eyebrow="Latest news"
         title="Health insights & hospital updates"
         maxWidth={560}

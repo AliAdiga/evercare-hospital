@@ -1,3 +1,5 @@
+import SectionHeading from '@/components/SectionHeading'
+
 export default function Contact() {
   return (
     <section
@@ -11,31 +13,15 @@ export default function Contact() {
 
         {/* LEFT */}
         <div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            color: 'var(--terracotta)', fontSize: '0.75rem',
-            fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', marginBottom: '16px',
-          }}>
-            <span style={{ width: '20px', height: '2px', background: 'var(--terracotta)', display: 'inline-block' }} />
-            Get In Touch
+          <div style={{ marginBottom: '36px' }}>
+            <SectionHeading
+              index="11"
+              eyebrow="Get in touch"
+              title="We are always here for you"
+              intro="Whether you have a question, need directions, or want to speak with a care coordinator, we are happy to help."
+              maxWidth={440}
+            />
           </div>
-
-          <h2 style={{
-            fontFamily: 'Lora, serif',
-            fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-            color: 'var(--midnight)', lineHeight: 1.25, marginBottom: '16px',
-          }}>
-            We are always here for you
-          </h2>
-
-          <p style={{
-            fontSize: '1rem', color: 'var(--muted)',
-            lineHeight: 1.7, maxWidth: '440px', marginBottom: '36px',
-          }}>
-            Whether you have a question, need directions, or want to speak
-            with a care coordinator, we are happy to help.
-          </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 

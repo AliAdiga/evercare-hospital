@@ -42,7 +42,7 @@ export default function WhyUs() {
         <div>
           <div style={{ marginBottom: '40px' }}>
             <SectionHeading
-              index="02"
+              index="03"
               eyebrow="Why choose us"
               title="Four pillars of exceptional healthcare"
               intro="At Evercare, we set ourselves apart through our unwavering commitment to quality, innovation, and the human side of medicine."

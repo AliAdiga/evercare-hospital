@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import SectionHeading from '@/components/SectionHeading'
 
 const inputStyle: React.CSSProperties = {
   padding: '12px 16px', border: '1.5px solid var(--border)',
@@ -35,30 +36,16 @@ export default function Appointment() {
       }}>
         {/* LEFT */}
         <div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem',
-            fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', marginBottom: '16px',
-          }}>
-            <span style={{ width: '20px', height: '2px', background: 'rgba(255,255,255,0.5)', display: 'inline-block' }} />
-            Book Appointment
+          <div style={{ marginBottom: '36px' }}>
+            <SectionHeading
+              index="08"
+              eyebrow="Book appointment"
+              title="Schedule your visit in minutes"
+              intro="Choose your specialist, pick a time that works for you, and leave the rest to us."
+              maxWidth={400}
+              light
+            />
           </div>
-
-          <h2 style={{
-            fontFamily: 'Lora, serif',
-            fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-            color: 'white', lineHeight: 1.25, marginBottom: '16px',
-          }}>
-            Schedule your visit in minutes
-          </h2>
-
-          <p style={{
-            fontSize: '1rem', color: 'rgba(255,255,255,0.75)',
-            lineHeight: 1.7, maxWidth: '400px', marginBottom: '36px',
-          }}>
-            Choose your specialist, pick a time that works for you, and leave the rest to us.
-          </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {[

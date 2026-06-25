@@ -68,7 +68,7 @@ export default function Doctors() {
 
       {/* Header */}
       <SectionHeading
-        index="04"
+        index="06"
         eyebrow="Our physicians"
         title="Meet the people who care"
         maxWidth={560}

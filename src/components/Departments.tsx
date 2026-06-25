@@ -34,7 +34,7 @@ export default function Departments() {
 
       {/* Header */}
       <SectionHeading
-        index="03"
+        index="05"
         eyebrow="Medical departments"
         title="Everything under one roof"
         intro="From routine check-ups to complex surgeries, our multidisciplinary teams are equipped to care for every aspect of your health."

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionHeading from '@/components/SectionHeading'
 
 const testimonials = [
   {
@@ -56,25 +57,12 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section style={{ padding: '100px 8%', background: 'var(--cream)' }}>
-      <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: '8px',
-          color: 'var(--terracotta)', fontSize: '0.75rem',
-          fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-          marginBottom: '16px',
-        }}>
-          <span aria-hidden="true" style={{ width: '20px', height: '2px', background: 'var(--terracotta)', display: 'inline-block' }} />
-          Patient Stories
-          <span aria-hidden="true" style={{ width: '20px', height: '2px', background: 'var(--terracotta)', display: 'inline-block' }} />
-        </div>
-        <h2 style={{
-          fontFamily: 'Lora, serif',
-          fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-          color: 'var(--midnight)', lineHeight: 1.25,
-        }}>
-          What our patients say
-        </h2>
-      </div>
+      <SectionHeading
+        index="04"
+        eyebrow="Patient stories"
+        title="What our patients say"
+        center
+      />
 
       {/* Grid — every patient shows a full quote */}
       <div

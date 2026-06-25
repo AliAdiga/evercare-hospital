@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import SectionHeading from '@/components/SectionHeading'
 
 const stats = [
   { number: 120000, suffix: '+', label: 'Patients Treated', icon: '🫀' },
@@ -87,31 +88,13 @@ export default function Stats() {
       background: 'linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%)',
     }}>
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-        style={{ textAlign: 'center', marginBottom: '56px' }}
-      >
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: '8px',
-          color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem',
-          fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-          marginBottom: '16px',
-        }}>
-          <span style={{ width: '20px', height: '2px', background: 'rgba(255,255,255,0.5)', display: 'inline-block' }} />
-          By The Numbers
-          <span style={{ width: '20px', height: '2px', background: 'rgba(255,255,255,0.5)', display: 'inline-block' }} />
-        </div>
-        <h2 style={{
-          fontFamily: 'Lora, serif',
-          fontSize: 'clamp(1.9rem, 3vw, 2.6rem)',
-          color: 'white', lineHeight: 1.25,
-        }}>
-          Trusted by thousands, every day
-        </h2>
-      </motion.div>
+      <SectionHeading
+        index="02"
+        eyebrow="By the numbers"
+        title="Trusted by thousands, every day"
+        center
+        light
+      />
 
       {/* Grid */}
       <motion.div

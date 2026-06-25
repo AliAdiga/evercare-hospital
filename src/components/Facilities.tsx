@@ -50,7 +50,7 @@ export default function Facilities() {
   return (
     <section id="facilities" style={{ padding: '100px 8%', background: 'var(--midnight)' }}>
       <SectionHeading
-        index="05"
+        index="07"
         eyebrow="Our facilities"
         title="World-class care, world-class environment"
         intro="Our facilities are designed with your comfort and recovery in mind — from state-of-the-art operating theatres to warm, welcoming patient rooms."
