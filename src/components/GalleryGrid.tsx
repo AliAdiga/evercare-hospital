@@ -35,7 +35,7 @@ export default function GalleryGrid({ photos, name }: { photos: string[], name: 
               className="overlay"
               style={{
                 position: 'absolute', inset: 0,
-                background: 'rgba(14,58,63,0.45)',
+                background: 'rgba(22,38,92,0.45)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 opacity: 0, transition: 'opacity 0.3s',
               }}
@@ -95,7 +95,7 @@ export default function GalleryGrid({ photos, name }: { photos: string[], name: 
                 style={{
                   width: '60px', height: '44px', objectFit: 'cover',
                   borderRadius: '8px', cursor: 'pointer',
-                  border: selected === photo ? '2px solid #db6a47' : '2px solid transparent',
+                  border: selected === photo ? '2px solid #15b1a4' : '2px solid transparent',
                   opacity: selected === photo ? 1 : 0.6,
                   transition: 'all 0.2s',
                 }}

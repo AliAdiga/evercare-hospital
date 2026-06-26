@@ -14,12 +14,17 @@ export default function PageChrome({
   return (
     <div style={{ background: 'var(--cream)', minHeight: '100vh' }}>
       {/* Nav */}
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(244,246,245,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--border)', padding: '0 5%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <div aria-hidden="true" style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--terracotta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700, fontFamily: 'Lora, serif' }}>E</div>
-          <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: 'var(--midnight)', fontWeight: 600 }}>Evercare Hospital</span>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--border)', padding: '0 clamp(1.25rem, 5vw, 4rem)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+          <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '11px', background: 'var(--teal)' }}>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true"><path d="M12 5v14 M5 12h14" /></svg>
+          </span>
+          <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+            <span style={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.15rem', fontWeight: 700, color: 'var(--navy)' }}>Evercare</span>
+            <span style={{ fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--muted)' }}>Medical Center</span>
+          </span>
         </Link>
-        <a href="/#appointment" style={{ background: 'var(--terracotta)', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
+        <a href="/#appointment" style={{ background: 'var(--teal)', color: 'white', padding: '11px 24px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none', boxShadow: '0 8px 22px rgba(21,177,164,0.3)' }}>Book online</a>
       </nav>
 
       {/* Hero */}

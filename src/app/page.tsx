@@ -5,6 +5,7 @@ import WhyUs from '@/components/WhyUs'
 import Testimonials from '@/components/Testimonials'
 import Accreditations from '@/components/Accreditations'
 import Insurance from '@/components/Insurance'
+import SpecialtyMarquee from '@/components/SpecialtyMarquee'
 import Departments from '@/components/Departments'
 import Doctors from '@/components/Doctors'
 import Facilities from '@/components/Facilities'
@@ -25,6 +26,7 @@ export default function Home() {
       <Testimonials />
       <Accreditations />
       <Insurance />
+      <SpecialtyMarquee />
       <Departments />
       <Doctors />
       <Facilities />

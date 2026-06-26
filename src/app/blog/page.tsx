@@ -5,7 +5,7 @@ const posts = [
     slug: 'heart-health-tips',
     category: 'Cardiology',
     categoryColor: '#fdeaea',
-    categoryText: '#db6a47',
+    categoryText: '#15b1a4',
     image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&h=400&fit=crop&q=80',
     date: 'May 28, 2026',
     readTime: '5 min read',
@@ -18,7 +18,7 @@ const posts = [
     slug: 'sleep-brain-health',
     category: 'Neurology',
     categoryColor: '#e8f5f0',
-    categoryText: '#1d6f69',
+    categoryText: '#0e8d82',
     image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&q=80',
     date: 'May 20, 2026',
     readTime: '4 min read',
@@ -57,7 +57,7 @@ const posts = [
     slug: 'cancer-early-detection',
     category: 'Oncology',
     categoryColor: '#fdeaea',
-    categoryText: '#db6a47',
+    categoryText: '#15b1a4',
     image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop&q=80',
     date: 'April 28, 2026',
     readTime: '8 min read',
@@ -70,7 +70,7 @@ const posts = [
     slug: 'managing-diabetes',
     category: 'General Health',
     categoryColor: '#e8f5f0',
-    categoryText: '#1d6f69',
+    categoryText: '#0e8d82',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop&q=80',
     date: 'April 15, 2026',
     readTime: '5 min read',
@@ -85,22 +85,22 @@ const categories = ['All', 'Cardiology', 'Neurology', 'Pediatrics', 'Orthopedics
 
 export default function BlogPage() {
   return (
-    <div style={{ background: '#f4f6f5', minHeight: '100vh' }}>
+    <div style={{ background: '#f5faf9', minHeight: '100vh' }}>
 
       {/* Nav */}
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(244,246,245,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #dde7e5', padding: '0 5%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(245,250,249,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e3eaf1', padding: '0 5%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#db6a47', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700 }}>E</div>
-          <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#0e3a3f', fontWeight: 600 }}>Evercare Hospital</span>
+          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#15b1a4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700 }}>E</div>
+          <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#16265c', fontWeight: 600 }}>Evercare Hospital</span>
         </Link>
         <Link href="/" style={{ fontSize: '0.85rem', color: '#7a8a8f', textDecoration: 'none' }}>Back to Home</Link>
-        <a href="/#appointment" style={{ background: '#db6a47', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
+        <a href="/#appointment" style={{ background: '#15b1a4', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
       </nav>
 
       {/* Hero */}
-      <div style={{ paddingTop: '70px', background: 'linear-gradient(135deg, #0e3a3f, #28393c)', padding: '120px 8% 80px' }}>
+      <div style={{ paddingTop: '70px', background: 'linear-gradient(135deg, #16265c, #1c2748)', padding: '120px 8% 80px' }}>
         <div style={{ maxWidth: '640px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(219,106,71,0.25)', color: '#f0a98e', border: '1px solid rgba(219,106,71,0.4)', padding: '6px 16px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(21,177,164,0.25)', color: '#2ec9bb', border: '1px solid rgba(21,177,164,0.4)', padding: '6px 16px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
             Health Blog
           </div>
           <h1 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(2.4rem, 4vw, 3.4rem)', color: 'white', lineHeight: 1.2, marginBottom: '16px' }}>
@@ -113,15 +113,15 @@ export default function BlogPage() {
       </div>
 
       {/* Categories */}
-      <div style={{ padding: '32px 8%', background: 'white', borderBottom: '1px solid #dde7e5', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+      <div style={{ padding: '32px 8%', background: 'white', borderBottom: '1px solid #e3eaf1', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
         {categories.map((cat) => (
           <button
             key={cat}
             style={{
               padding: '8px 20px', borderRadius: '100px',
-              border: cat === 'All' ? 'none' : '1px solid #dde7e5',
-              background: cat === 'All' ? '#db6a47' : 'white',
-              color: cat === 'All' ? 'white' : '#28393c',
+              border: cat === 'All' ? 'none' : '1px solid #e3eaf1',
+              background: cat === 'All' ? '#15b1a4' : 'white',
+              color: cat === 'All' ? 'white' : '#1c2748',
               fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
             }}
           >
@@ -136,7 +136,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article
               key={post.slug}
-              style={{ background: 'white', borderRadius: '20px', overflow: 'hidden', border: '1px solid #dde7e5', transition: 'all 0.3s' }}
+              style={{ background: 'white', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e3eaf1', transition: 'all 0.3s' }}
             >
               <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                 <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -150,7 +150,7 @@ export default function BlogPage() {
                   <span style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>·</span>
                   <span style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>{post.readTime}</span>
                 </div>
-                <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.1rem', color: '#0e3a3f', marginBottom: '10px', lineHeight: 1.4, fontWeight: 600 }}>
+                <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.1rem', color: '#16265c', marginBottom: '10px', lineHeight: 1.4, fontWeight: 600 }}>
                   {post.title}
                 </h2>
                 <p style={{ fontSize: '0.85rem', color: '#7a8a8f', lineHeight: 1.6, marginBottom: '20px' }}>
@@ -159,9 +159,9 @@ export default function BlogPage() {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src={post.authorPhoto} alt={post.author} style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }} />
-                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#28393c' }}>{post.author}</span>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#1c2748' }}>{post.author}</span>
                   </div>
-                  <Link href={`/blog/${post.slug}`} style={{ fontSize: '0.8rem', color: '#db6a47', fontWeight: 600, textDecoration: 'none' }}>
+                  <Link href={`/blog/${post.slug}`} style={{ fontSize: '0.8rem', color: '#15b1a4', fontWeight: 600, textDecoration: 'none' }}>
                     Read more
                   </Link>
                 </div>
@@ -172,9 +172,9 @@ export default function BlogPage() {
       </div>
 
       {/* Footer */}
-      <div style={{ background: '#0e3a3f', padding: '32px 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ background: '#16265c', padding: '32px 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>2026 Evercare Hospital. All rights reserved.</span>
-        <Link href="/" style={{ color: '#ec8a6c', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600 }}>Back to Home</Link>
+        <Link href="/" style={{ color: '#2ec9bb', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600 }}>Back to Home</Link>
       </div>
     </div>
   )

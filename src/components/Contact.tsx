@@ -82,7 +82,7 @@ export default function Contact() {
               background: 'var(--terracotta)', color: 'white',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: '26px',
-              boxShadow: '0 0 0 12px rgba(219,106,71,0.15), 0 0 0 24px rgba(219,106,71,0.07)',
+              boxShadow: '0 0 0 12px rgba(21,177,164,0.15), 0 0 0 24px rgba(21,177,164,0.07)',
             }}>
               🏥
             </div>

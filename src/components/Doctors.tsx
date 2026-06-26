@@ -32,7 +32,7 @@ const doctors = [
     credentials: 'MD, FAAP · 14 years experience',
     rating: '5.0',
     photo: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=300&fit=crop&q=80',
-    badgeColor: 'var(--gold)',
+    badgeColor: 'var(--teal)',
     stars: '★★★★★',
   },
   {
@@ -42,7 +42,7 @@ const doctors = [
     credentials: 'MD, FACS · 16 years experience',
     rating: '4.7',
     photo: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=300&fit=crop&q=80',
-    badgeColor: '#6a5a8e',
+    badgeColor: 'var(--navy)',
     stars: '★★★★☆',
   },
 ]

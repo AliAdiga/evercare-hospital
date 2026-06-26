@@ -7,29 +7,29 @@ export default async function DepartmentPage({ params }: { params: Promise<{ slu
 
   if (!dept) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f4f6f5' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f5faf9' }}>
         <div style={{ textAlign: 'center' }}>
-          <h1 style={{ fontFamily: 'Lora, serif', fontSize: '2rem', color: '#0e3a3f', marginBottom: '12px' }}>Department not found</h1>
-          <Link href="/" style={{ color: '#db6a47', textDecoration: 'none', fontWeight: 600 }}>Back to Home</Link>
+          <h1 style={{ fontFamily: 'Lora, serif', fontSize: '2rem', color: '#16265c', marginBottom: '12px' }}>Department not found</h1>
+          <Link href="/" style={{ color: '#15b1a4', textDecoration: 'none', fontWeight: 600 }}>Back to Home</Link>
         </div>
       </div>
     )
   }
 
   return (
-    <div style={{ background: '#f4f6f5', minHeight: '100vh' }}>
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(244,246,245,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #dde7e5', padding: '0 5%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
+    <div style={{ background: '#f5faf9', minHeight: '100vh' }}>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: 'rgba(245,250,249,0.95)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e3eaf1', padding: '0 5%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#db6a47', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700 }}>E</div>
-          <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#0e3a3f', fontWeight: 600 }}>Evercare Hospital</span>
+          <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#15b1a4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: 700 }}>E</div>
+          <span style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#16265c', fontWeight: 600 }}>Evercare Hospital</span>
         </Link>
         <Link href="/#departments" style={{ fontSize: '0.85rem', color: '#7a8a8f', textDecoration: 'none' }}>Back to Departments</Link>
-        <a href="/#appointment" style={{ background: '#db6a47', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
+        <a href="/#appointment" style={{ background: '#15b1a4', color: 'white', padding: '10px 22px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Book Appointment</a>
       </nav>
 
       <div style={{ paddingTop: '70px', position: 'relative', height: '480px', overflow: 'hidden' }}>
         <img src={dept.image} alt={dept.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(14,58,63,0.85) 0%, rgba(14,58,63,0.3) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(22,38,92,0.85) 0%, rgba(22,38,92,0.3) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', padding: '0 8%' }}>
           <div>
             <h1 style={{ fontFamily: 'Lora, serif', fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', color: 'white', lineHeight: 1.2, marginBottom: '16px' }}>{dept.name}</h1>
@@ -40,23 +40,23 @@ export default async function DepartmentPage({ params }: { params: Promise<{ slu
 
       <div style={{ padding: '80px 8%', display: 'grid', gridTemplateColumns: '1fr 360px', gap: '60px' }}>
         <div>
-          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#0e3a3f', marginBottom: '20px' }}>About our {dept.name} Department</h2>
+          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#16265c', marginBottom: '20px' }}>About our {dept.name} Department</h2>
           <p style={{ fontSize: '1rem', color: '#7a8a8f', lineHeight: 1.8, marginBottom: '56px' }}>{dept.overview}</p>
 
-          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#0e3a3f', marginBottom: '28px' }}>What we offer</h2>
+          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#16265c', marginBottom: '28px' }}>What we offer</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '56px' }}>
             {dept.services.map((service) => (
-              <div key={service} style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'white', padding: '16px 20px', borderRadius: '12px', border: '1px solid #dde7e5' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#db6a47', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.88rem', color: '#28393c', fontWeight: 500 }}>{service}</span>
+              <div key={service} style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'white', padding: '16px 20px', borderRadius: '12px', border: '1px solid #e3eaf1' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#15b1a4', flexShrink: 0 }} />
+                <span style={{ fontSize: '0.88rem', color: '#1c2748', fontWeight: 500 }}>{service}</span>
               </div>
             ))}
           </div>
 
-          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#0e3a3f', marginBottom: '28px' }}>Conditions we treat</h2>
+          <h2 style={{ fontFamily: 'Lora, serif', fontSize: '1.8rem', color: '#16265c', marginBottom: '28px' }}>Conditions we treat</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
             {dept.conditions.map((condition) => (
-              <div key={condition} style={{ background: 'white', border: '1px solid #dde7e5', padding: '10px 18px', borderRadius: '100px', fontSize: '0.85rem', color: '#28393c', fontWeight: 500 }}>
+              <div key={condition} style={{ background: 'white', border: '1px solid #e3eaf1', padding: '10px 18px', borderRadius: '100px', fontSize: '0.85rem', color: '#1c2748', fontWeight: 500 }}>
                 {condition}
               </div>
             ))}
@@ -64,34 +64,34 @@ export default async function DepartmentPage({ params }: { params: Promise<{ slu
         </div>
 
         <div style={{ position: 'sticky', top: '90px' }}>
-          <div style={{ background: 'white', borderRadius: '20px', padding: '32px', border: '1px solid #dde7e5', marginBottom: '20px' }}>
-            <h3 style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#0e3a3f', marginBottom: '16px' }}>Book an Appointment</h3>
+          <div style={{ background: 'white', borderRadius: '20px', padding: '32px', border: '1px solid #e3eaf1', marginBottom: '20px' }}>
+            <h3 style={{ fontFamily: 'Lora, serif', fontSize: '1.2rem', color: '#16265c', marginBottom: '16px' }}>Book an Appointment</h3>
             <p style={{ fontSize: '0.85rem', color: '#7a8a8f', lineHeight: 1.6, marginBottom: '24px' }}>Schedule a consultation with one of our {dept.name} specialists today.</p>
-            <a href="/#appointment" style={{ display: 'block', background: '#db6a47', color: 'white', padding: '14px', borderRadius: '100px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', textAlign: 'center' }}>Book Appointment</a>
+            <a href="/#appointment" style={{ display: 'block', background: '#15b1a4', color: 'white', padding: '14px', borderRadius: '100px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', textAlign: 'center' }}>Book Appointment</a>
           </div>
-          <div style={{ background: 'white', borderRadius: '20px', padding: '32px', border: '1px solid #dde7e5' }}>
-            <h3 style={{ fontFamily: 'Lora, serif', fontSize: '1.1rem', color: '#0e3a3f', marginBottom: '16px' }}>Need help?</h3>
+          <div style={{ background: 'white', borderRadius: '20px', padding: '32px', border: '1px solid #e3eaf1' }}>
+            <h3 style={{ fontFamily: 'Lora, serif', fontSize: '1.1rem', color: '#16265c', marginBottom: '16px' }}>Need help?</h3>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#dcebe9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>📞</div>
+              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#e4f4f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>📞</div>
               <div>
                 <div style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>Call us</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#0e3a3f' }}>+1 (800) 382-7227</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#16265c' }}>+1 (800) 382-7227</div>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#dcebe9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>✉️</div>
+              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#e4f4f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}>✉️</div>
               <div>
                 <div style={{ fontSize: '0.75rem', color: '#7a8a8f' }}>Email us</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#0e3a3f' }}>contact@evercarehospital.com</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#16265c' }}>contact@evercarehospital.com</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ background: '#0e3a3f', padding: '32px 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ background: '#16265c', padding: '32px 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>2026 Evercare Hospital. All rights reserved.</span>
-        <Link href="/" style={{ color: '#ec8a6c', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600 }}>Back to Home</Link>
+        <Link href="/" style={{ color: '#2ec9bb', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600 }}>Back to Home</Link>
       </div>
     </div>
   )
